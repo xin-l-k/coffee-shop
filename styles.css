@@ -1,0 +1,93 @@
+/* Basic styling */
+body {
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+header {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+}
+
+.section {
+    border: 1px solid black;
+    padding: 20px;
+    position: relative;
+    flex: 1 1 100%;
+    background-clip: padding-box;
+}
+
+.section-title {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: lightgray;
+    padding: 5px;
+    border: 1px solid black;
+    transform: translateY(-50%);
+    /* Adjust to sit above the content */
+}
+
+/* Adding top padding to content within each section for more space */
+.section p {
+    margin-top: 40px;
+}
+
+/* Desktop view */
+@media (min-width: 992px) {
+    .section {
+        flex: 1 1 calc(33.3333% - 20px);
+        /* 3 sections side by side with spacing */
+    }
+}
+
+/* Tablet view */
+@media (min-width: 768px) and (max-width: 991px) {
+    .section {
+        flex: 1 1 calc(50% - 20px);
+        /* 2 sections side by side and 1 below */
+    }
+
+    .section:nth-child(3) {
+        flex: 1 1 100%;
+        /* The third section takes full width */
+    }
+}
+
+/* Mobile view */
+@media (max-width: 767px) {
+    .section {
+        flex: 1 1 100%;
+        /* Each section takes full width */
+    }
+}
+
+/* Background colors for each section */
+.americano {
+    background-color: lightcoral;
+}
+
+.latté {
+    background-color: lightgreen;
+}
+
+.mocha {
+    background-color: lightblue;
+}
